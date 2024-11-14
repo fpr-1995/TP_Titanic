@@ -1,0 +1,74 @@
+---
+title: "TP4_reproductibilite"
+output: html_document
+date: "2024-11-13"
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+##---- 2. Création d’un Rapport d’Analyse dans un Document RMarkdown
+#Créez un fichier RMarkdown Analyse.Rmd dans le dossier cloné précédemment
+#Chargez les données TitanicSurvival (disponible dans carData).
+#Présentez les données vous pouvez chercher TitanicSurvvival dans l’aide de Rstudio
+#Présentez les statistiques descriptives.
+#Visualisez la répartition des survivants en fonction du sexe et la classe.
+#Représentez l’age en fonction de la variable survived.
+#Facultatif : Expliquer la variable Survived en fonctions des autres variables.
+#Interprétez les résultats obtenus.
+#Utilisez knit pour générer un rapport en HTML.
+#Commit les changements avec un message explicatif.
+```
+
+
+```{r}
+#Interprétez les résultats obtenus.
+#Utilisez knit pour générer un rapport en HTML.
+#Commit les changements avec un message explicatif.
+
+library("carData")
+
+dft <- TitanicSurvival
+head(dft)
+
+```
+```{r}
+summary(dft)
+```
+
+
+```{r}
+library(ggplot2)
+ggplot(dft, aes(x = sex, fill = survived)) +
+  geom_bar(position="dodge") +  
+  facet_wrap(~ passengerClass) +
+  labs(title = "Repartition des survivants en fonction du sexe et la classe",
+     x = "Sexe",
+     y = "Nombre de passagers",
+     fill = "Survivants") +
+  scale_y_continuous() +
+  theme_light() 
+
+```
+```{r}
+ggplot(dft, aes(x = factor(survived), y = age)) +
+  geom_violin(trim = FALSE, fill = "pink", color = "darkblue") + 
+  geom_boxplot(width = 0.1, fill = "white", color = "black", outlier.shape = NA) +  
+  labs(title = "Répartition de l'âge en fonction des survivants",
+       x = "Survivants (oui|non)",
+       y = "Âge") +
+  theme_minimal() +
+  theme(text = element_text(size = 16))
+```
+Interpretations: 
+
+- Graphique : Repartition des survivants en fonction du sexe et la classe
+
+Nous constatons qu'il y a plus de passagers qui n'ont pas survecu que de passagers ayant survecu.
+Nous pouvons voir aussi que, la majorité des survivants était constitué de femmes.
+Parmis toutes les classes, ce sont les passagers de la 3e classe (tout sexe confondus) qui ont le moins survecu. 
+
+- Graphique : Repartition de l'âge en fonction des survivants
+
