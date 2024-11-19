@@ -57,18 +57,14 @@ ggplot(dft, aes(x = factor(survived), y = age)) +
   geom_violin(trim = FALSE, fill = "pink", color = "darkblue") + 
   geom_boxplot(width = 0.1, fill = "white", color = "black", outlier.shape = NA) +  
   labs(title = "Répartition de l'âge en fonction des survivants",
-       x = "Survivants (oui|non)",
+       x = "Survivants",
        y = "Âge") +
   theme_minimal() +
   theme(text = element_text(size = 16))
 ```
 Interpretations: 
 
-- Graphique : Repartition des survivants en fonction du sexe et la classe
-
-Nous constatons qu'il y a plus de passagers qui n'ont pas survecu que de passagers ayant survecu.
-Nous pouvons voir aussi que, la majorité des survivants était constitué de femmes.
+Nous constatons que le nombre de passagers ayant survecu est inférieure au nombre de passagers n'ayant pas survecu.
+Nous pouvons voir aussi que, la majorité des survivants étaient des femmes.
 Parmis toutes les classes, ce sont les passagers de la 3e classe (tout sexe confondus) qui ont le moins survecu. 
-
-- Graphique : Repartition de l'âge en fonction des survivants
-
+Nous constatons aussi que l'age a un effet negatif sur la survie. Plus l'age augmente, plus les chances de survivre diminuent. 
