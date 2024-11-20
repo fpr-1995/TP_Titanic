@@ -68,3 +68,11 @@ Nous constatons que le nombre de passagers ayant survecu est inférieure au nomb
 Nous pouvons voir aussi que, la majorité des survivants étaient des femmes.
 Parmis toutes les classes, ce sont les passagers de la 3e classe (tout sexe confondus) qui ont le moins survecu. 
 Nous constatons aussi que l'age a un effet negatif sur la survie. Plus l'age augmente, plus les chances de survivre diminuent. 
+
+```{r}
+TitanicPckg2::taux_survie_classe(TitanicSurvival)
+```
+```{r}
+TitanicPckg2::taux_survie_sexe(TitanicSurvival)
+```
+
